@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+	<h1>Rate Teacher</h1>
+</div>
+<div class="container">
+	<p>Teacher: {{teacher.first_name}} {{teacher.last_name}}</p>
+	<form action="" method="post">
+		{{ form.hidden_tag() }}
+		<p>
+			{{ form.dedication_score.label }}:
+			{% for score in form.dedication_score %}
+				{{ score.label }} {{score}}
+			{% endfor %}
+			{% for error in form.dedication_score.errors %}
+				<span style="color:red;">[{{error}}]</span>
+			{% endfor %}
+		</p>
+		<p>
+			{{ form.leniency_score.label }}:
+			{% for score in form.leniency_score %}
+				{{ score.label }} {{score}}
+			{% endfor %}
+			{% for error in form.leniency_score.errors %}
+				<span style="color:red;">[{{error}}]</span>
+			{% endfor %}
+		</p>
+		<p>
+			{{ form.marks_score.label }}:
+			{% for score in form.marks_score %}
+				{{ score.label }} {{score}}
+			{% endfor %}
+			{% for error in form.marks_score.errors %}
+				<span style="color:red;">[{{error}}]</span>
+			{% endfor %}
+		</p>
+		<p>
+			{{ form.teaching_score.label }}:
+			{% for score in form.teaching_score %}
+				{{ score.label }} {{score}}
+			{% endfor %}
+			{% for error in form.teaching_score.errors %}
+				<span style="color:red;">[{{error}}]</span>
+			{% endfor %}
+		</p>
+		<p>
+			{{ form.friendliness_score.label }}:
+			{% for score in form.friendliness_score %}
+				{{ score.label }} {{score}}
+			{% endfor %}
+			{% for error in form.friendliness_score.errors %}
+				<span style="color:red;">[{{error}}]</span>
+			{% endfor %}
+		</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+	</div>
+
+{% endblock %}
